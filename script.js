@@ -1,22 +1,26 @@
-function updateText(){
+// function updateText(){
+//  
+// }
+
+updateText = () => {
   let text = document.getElementById('text-input').value
   document.getElementById('text-output').innerText = text
 }
 
 
-function makeBold(elem){
+makeBold = elem => {
   elem.classList.toggle('active')
   document.getElementById('text-output').classList.toggle('bold')
 }
 
 
-function makeItalic(elem){
+makeItalic = elem => {
   elem.classList.toggle('active')
   document.getElementById('text-output').classList.toggle('italic')
 }
 
 
-function makeUnderline(elem){
+makeUnderline = elem => {
   elem.classList.toggle('active')
   let output = document.getElementById('text-output')
     if(output.classList.contains('underline')){
@@ -26,11 +30,11 @@ function makeUnderline(elem){
     }
 }
 
-function alignText(elem, alignType){
-document.getElementById('text-output').style.textAlign = alignType
-let buttonsList = document.getElementsByClassName('align');
-for(let i = 0; i < buttonsList.length; i++){
-  buttonsList[i].classList.remove('active')
-}
+alignText = (elem, alignType) => {
+document.querySelector('#text-output').style.textAlign = alignType
+let buttonsList = document.querySelectorAll('.align');
+buttonsList.forEach((button)=> {
+  button.classList.remove('active')
+})
 elem.classList.add('active')
 }
